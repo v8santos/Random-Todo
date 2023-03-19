@@ -37,11 +37,7 @@ h1 {
 }
 
 .todo-list li {
-  margin: 10px 0;
-}
-
-.todo-list li .checkbox {
-  margin-right: 10px;
+  padding: 10px 0;
 }
 
 .btn {
@@ -77,4 +73,36 @@ hr {
 
 .text-muted {
   color: #aaa;
+}
+
+.todo-list-item {
+  display: flex;
+  border-bottom: 1px solid #111;
+}
+
+.todo-list-item .todo-list-item-clickable {
+  display: flex;
+  align-items: baseline;
+  flex: 1;
+}
+
+.todo-list-item .todo-list-item-clickable .todo-list-item-text {
+  margin: 0 10px;
+}
+
+.todo-list-item .todo-list-item-text {
+  word-wrap: break-word;
+}
+
+.todo-list-item .todo-list-item-delete {
+  cursor: pointer;
+  color: #666;
+}
+
+/* .todo-list-item .todo-list-item-delete svg {
+  color: red;
+} */
+
+.todo-list-item .todo-list-item-delete:hover {
+  color: #ff005d;
 }
