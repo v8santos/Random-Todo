@@ -16,7 +16,7 @@ interface Props {
 }
 
 export default function Todo({ type }: Props) {
-  const [todoItems, setTodoItems] = useState<ITodo[]>([]);
+  const [todoItems, setTodoItems] = useState<ITodo[]>(getTodoItemsOnLocalStorage());
   const [generating, setGenerating] = useState<boolean>(false);
 
   function getTodoItemsOnLocalStorage(): ITodo[] {
@@ -25,10 +25,6 @@ export default function Todo({ type }: Props) {
 
   function setTodoItemsOnLocalStorage(data: ITodo[]) {
     window.localStorage.setItem('todo_items', JSON.stringify(data));
-  }
-
-  function initializeTodo() {
-    setTodoItems(getTodoItemsOnLocalStorage());
   }
 
   function generateTask(lap: number = 0) {
@@ -77,10 +73,6 @@ export default function Todo({ type }: Props) {
     setTodoItems(updatedTodoItems);
     setTodoItemsOnLocalStorage(updatedTodoItems);
   }
-
-  window.addEventListener('load', function () {
-    initializeTodo();
-  })
 
   return (
     <div className='todo'>
